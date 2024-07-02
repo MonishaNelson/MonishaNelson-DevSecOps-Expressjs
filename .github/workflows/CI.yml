@@ -1,10 +1,12 @@
 name: Build the code and scan the code
+
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-  workflow_dispatch:
+
+#workflow_dispatch:
 
 jobs:
 
@@ -37,9 +39,17 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    #needs:
+      #- Code-Build-SonarScan
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # - name: Download build artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: build-artifact 
 
       - name: Docker Login
         uses: docker/login-action@v3.2.0 
@@ -96,6 +106,7 @@ jobs:
 
   Image-push:
     runs-on: ubuntu-latest
+
     needs:
       - Image-scan
     outputs:
