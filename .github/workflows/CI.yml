@@ -216,9 +216,9 @@ jobs:
           CHART_NAME=$(cat charts/Chart.yaml | grep '^name:' | awk '{print $2}')
           PACKAGE_NAME="${CHART_NAME}-${CHART_VERSION}.tgz"
           cp /home/runner/work//home/runner/work/MonishaNelson-DevSecOps-Expressjs/MonishaNelson-DevSecOps-Expressjs/packaged-charts/packaged-charts/$PACKAGE_NAME .
-          git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/MonishaNelson/DevSecOps-Java.git --branch gh-pages --single-branch gh-pages
+          git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/MonishaNelson-DevSecOps-Expressjs --branch gh-pages --single-branch gh-pages
           cd gh-pages
-          cp /home/runner/work/DevSecOps-Java/DevSecOps-Java/packaged-charts/$PACKAGE_NAME .
+          cp /home/runner/work/MonishaNelson-DevSecOps-Expressjs/MonishaNelson-DevSecOps-Expressjs/packaged-charts/$PACKAGE_NAME .
           git add $PACKAGE_NAME
           git commit -m "Add $PACKAGE_NAME"
           git push origin gh-pages
