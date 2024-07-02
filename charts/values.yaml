@@ -3,7 +3,8 @@ replicaCount: 1
 image:
   repository: monishanelson/devsecops_accelerator
   pullPolicy: IfNotPresent
-  tag: v1
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: 
 
 annotations:
    name: express-app
